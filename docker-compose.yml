@@ -1,0 +1,56 @@
+version: "3"
+services:
+  db:
+    container_name: koa_postgres
+    image: postgres:13.2-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: koa_pgadmin
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+        PGADMIN_DEFAULT_EMAIL: ${DB_USEREMAIL} #xxx@gmail
+        PGADMIN_DEFAULT_PASSWORD: ${DB_PASSWORD} #abcd
+        PGADMIN_LISTEN_PORT: 80
+    ports:
+      - "8080:80"
+    volumes:
+        - pgadmin-data:/var/lib/pgadmin
+    links:
+      - "db:pgsql-server"
+  app:
+    container_name: koa_app
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+      args:
+        DB_HOST: ${DB_HOST}
+        DB_USERNAME: ${DB_USERNAME}
+        DB_PASSWORD: ${DB_PASSWORD}
+        DB_DATABASE: ${DB_DATABASE}
+        DB_SCHEMA: ${DB_SCHEMA}
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_SCHEMA: ${DB_SCHEMA}
+    ports:
+      - "3000:3000"
+    links:
+      - "db:pgsql-server"
+    restart: unless-stopped
+    command: npm start
+
+volumes:
+    db-data:
+    pgadmin-data:
