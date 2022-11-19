@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/src/css/root.login.css">
+    <script src="/src/js/root.login.js"></script>
+    <title>Welcome | Twelve</title>
+</head>
+<body>
+  <div class="background-image"></div>
+  <main>
+    <div class="container">
+      <h1 id="main-title" data-text="{{title}}™"></h1>
+      <form id="form" method="post" onsubmit="alert('System is not ready...');return false;">
+        <div class="row login">
+          <input name="username" placeholder="使用者名稱">
+          <input name="password" placeholder="密碼">
+          <div class="registration w-100 row hidden">
+            <div class="col-6">
+              <input type="email" name="email" placeholder="電子信箱" class="w-100">
+            </div>
+            <div class="col-6">
+              <input type="email" name="email-repeat" placeholder="確認信箱">
+            </div>
+          </div>
+        </div>
+        <div class="container" id="features">
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-success" type="submit">登入</button>
+              <button id="registration-btn" class="btn btn-outline-primary">切換至註冊</button>
+            </div>
+            <div class="col text-end">
+              <button class="btn btn-light">忘記密碼</button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col">
+            <button class="oauth google-oauth btn btn-primary w-100">使用 Google 登入</button>
+          </div>
+          <div class="col">
+            <button class="oauth facebook-oauth btn btn-primary w-100">使用 Facebook 登入</button>
+          </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

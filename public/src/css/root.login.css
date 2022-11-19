@@ -1,0 +1,118 @@
+body{
+  /* center everything */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+input{
+  margin: 10px;
+  padding: 5px;
+  border:rgba(0, 0, 0, 0.3) solid 1px;
+  border-radius: 5px;
+}
+
+/* body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url('https://i.imgur.com/lL6tQfy.png');
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+} */
+.background-image{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-image: url('/login-background.jpg');
+  background-size: cover;
+}
+
+main{
+  margin-top: -150px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* -webkit-filter: blur(5px); */
+  border-radius: 10px;
+  /* background:ghostwhite; */
+  color:white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#main-title{
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+#main-title::before{
+  content: attr(data-text);
+  /* transform: rotatex(180deg) translatey(15px); 
+  mask-image: linear-gradient(transparent 50%, white 90%); */
+}
+#main-title::after{
+  content: attr(data-text);
+  opacity: 0.5;
+  display: block;
+  transform: rotatex(180deg) translatey(15px);
+  mask-image: linear-gradient(transparent 50%, white 90%);
+  -webkit-mask-image: linear-gradient(transparent 50%, white 90%);
+
+}
+
+#features{
+  margin:20px 0px 0px 0px;
+  padding: 0px; 
+  text-align: left;
+}
+
+.hidden{
+  display: none;
+}
+
+.oauth{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.oauth{
+  /* text invisiable */
+  color: transparent;
+}
+.oauth:hover{
+  color:black;
+  text-shadow: 0 0 5px whitesmoke;
+  /* background image darker */
+  -webkit-filter: brightness(0.5);
+}
+
+.google-oauth{
+  background-image: url('https://s.yimg.com/ny/api/res/1.2/WkSwBYGR70t43cNUrweA4A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://media.zenfs.com/zh-Hant-TW/homerun/twtech.appappapps.com/4e955c7e106495f5dd200567837c750a');
+}
+
+.facebook-oauth{
+  background-image: url('https://i.pinimg.com/originals/4f/da/a3/4fdaa3d2c546b7715b18fb814edbc0a2.gif');
+}
