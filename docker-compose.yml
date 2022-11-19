@@ -29,6 +29,8 @@ services:
       - "db:pgsql-server"
   app:
     container_name: koa_app
+    depends_on:
+      - db
     build:
       context: ./app
       dockerfile: Dockerfile

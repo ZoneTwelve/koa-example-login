@@ -1,4 +1,10 @@
 FROM node:18.12.1
 WORKDIR /usr/src/app
 COPY . .
+ARG DB_HOST
+ARG DB_USERNAME
+ARG DB_PASSWORD
+ARG DB_DATABASE
+ARG DB_SCHEMA
 RUN npm install --quiet
+RUN npm run init
