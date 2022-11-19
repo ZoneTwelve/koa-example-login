@@ -104,7 +104,7 @@ main{
 }
 .oauth:hover{
   color:black;
-  text-shadow: 0 0 5px whitesmoke;
+  text-shadow: 0px 0px 10px white;
   /* background image darker */
   -webkit-filter: brightness(0.5);
 }

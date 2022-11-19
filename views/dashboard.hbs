@@ -9,7 +9,27 @@
 <body>
   <h1>{{title}}</h1>
   <h2>Dashboard</h2>
-  <p>Hi, {{user.username}}!</p>
-  <a href="/logout">Logout</a>
+  <p>Hi, <b>{{user.username}}</b>!</p>
+  <a href="javascript:logout()">Logout</a>
+  
+  {{!-- send request to DELETE /user/session --}}
 </body>
+<script>
+  // send request to DELETE /user/session
+  function logout(){
+    fetch('/user/session', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.status === 'success'){
+        window.location.href = '/';
+      }
+    })
+    .catch(err => console.log(err));
+  }
+</script>
 </html>

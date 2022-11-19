@@ -14,6 +14,13 @@
   <main>
     <div class="container">
       <h1 id="main-title" data-text="{{title}}™"></h1>
+      {{!-- if GET[error] exist --}}
+      {{!-- if not error print hidden --}}
+      <div id="error" class="alert alert-danger {{#if error}}visible{{else}}hidden{{/if}}" role="alert">
+        {{#if error}}
+            {{error}}
+        {{/if}}
+      </div>
       <form id="form" method="post" onsubmit="alert('System is not ready...');return false;">
         <div class="row login">
           <input name="username" placeholder="使用者名稱">
@@ -23,7 +30,7 @@
               <input type="email" name="email" placeholder="電子信箱" class="w-100">
             </div>
             <div class="col-6">
-              <input type="email" name="email-repeat" placeholder="確認信箱">
+              <input type="email" name="email-comfirm" placeholder="確認信箱">
             </div>
           </div>
         </div>

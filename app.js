@@ -13,10 +13,10 @@ const index = require('./routes/index')
 const SessionConfig = {
   maxAge: 86400000,
   httpOnly: true,
-  signed: true,
   rolling: true,
+  secure:false,
+  signed:false,
   renew: false,
-  secure: true,
 };
 
 // error handler
@@ -52,6 +52,7 @@ app.pool = new Pool({
   user: process.env.DB_USERNAME || "postgres",
   password: process.env.DB_PASSWORD || "postgres",
   database: process.env.DB_DATABASE || "twelve_system",
+  schema: process.env.DB_SCHEMA || "twelve_sys",
 });
 
 // routes
